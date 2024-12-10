@@ -4,3 +4,5 @@ export {
 } from './slice/userSlice';
 
 export {UserSchema, User} from './types/user';
+
+export {getUserAuthData} from './selectors/getUserAuthData';

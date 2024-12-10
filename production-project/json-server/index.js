@@ -1,6 +1,7 @@
 const fs = require('fs');
 const jsonServer = require('json-server');
 const path = require('path');
+const cors = require('cors');
 
 const server = jsonServer.create();
 
@@ -55,3 +56,14 @@ server.use(router);
 server.listen(8000, () => {
     console.log('server is running on 8000 port');
 });
+
+
+server.use(
+    cors({
+        origin: true,
+        credentials: true,
+        preflightContinue: false,
+        methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    }),
+);
+server.options('*', cors());
