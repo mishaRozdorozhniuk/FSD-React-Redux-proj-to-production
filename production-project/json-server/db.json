@@ -36,6 +36,13 @@
     }
     ],
     "profile": {
-        "name": "typicode"
+      "first": "Misha",
+      "lastname": "Rozdorozhniuk",
+      "age": 21,
+      "currency": "UAH",
+      "country": "Ukraine",
+      "city": "Kyiv",
+      "username": "admin",
+      "avatar": "aang"
     }
 }

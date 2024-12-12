@@ -1,5 +1,5 @@
+// @ts-ignore
 import webpack from 'webpack';
-import path from 'path';
 import { BuildOptions } from './types/config';
 import { buildPlugins } from './buildPlugins';
 import { buildLoaders } from './buildLoaders';
