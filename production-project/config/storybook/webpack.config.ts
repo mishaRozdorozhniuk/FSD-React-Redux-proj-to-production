@@ -1,9 +1,10 @@
-import webpack, { RuleSetRule } from 'webpack';
-import path from 'path';
+import { RuleSetRule, Configuration } from 'webpack';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
 import { BuildPaths } from '../build/types/config';
+const webpack = require('webpack');
+const path = require('path');
 
-export default ({ config }: {config: webpack.Configuration}) => {
+export default ({ config }: {config: Configuration}) => {
     const paths: BuildPaths = {
         build: '',
         html: '',
@@ -27,6 +28,13 @@ export default ({ config }: {config: webpack.Configuration}) => {
         use: ['@svgr/webpack'],
     });
     config.module.rules.push(buildCssLoader(true));
+
+    config.plugins.push(
+        new webpack.DefinePlugin({
+            __IS_DEV__: JSON.stringify(true),
+            __API__: JSON.stringify(''),
+        }),
+    );
 
     return config;
 };

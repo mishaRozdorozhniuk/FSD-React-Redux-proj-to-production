@@ -2,6 +2,7 @@ import {UserSchema} from "entities/User";
 import {LoginSchema} from "features/AuthByUsername";
 import {AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject} from "@reduxjs/toolkit";
 import {ProfileSchema} from "entities/Profile";
+import {AxiosInstance} from "axios";
 
 export interface StateSchema {
     user: UserSchema,
@@ -29,3 +30,12 @@ export interface ReducerManager {
     remove: (key: StateSchemaKeys) => void,
 }
 
+export interface ThunkExtraArg {
+    api: AxiosInstance,
+    navigate: (to: string, options?: any) => void,
+}
+
+export interface ThunkConfig<T> {
+    rejectValue: T,
+    extra: ThunkExtraArg
+}

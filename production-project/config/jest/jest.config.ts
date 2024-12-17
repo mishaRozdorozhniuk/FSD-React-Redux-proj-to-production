@@ -1,11 +1,10 @@
-/*
- * For a detailed explanation regarding each configuration property and type check, visit:
- * https://jestjs.io/docs/configuration
- */
-
-import path from 'path';
+const path = require('path');
 
 export default {
+    global: {
+        __IS_DEV__: true,
+        __API__: '',
+    },
     clearMocks: true,
     testEnvironment: 'jsdom',
     coveragePathIgnorePatterns: [
